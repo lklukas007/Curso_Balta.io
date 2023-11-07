@@ -1,4 +1,5 @@
 ﻿using MenuHtml;
+using System;
 
 namespace Calculadora
 {

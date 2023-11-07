@@ -2,6 +2,7 @@ using System.Text;
 using System.Collections;
 using System.IO;
 using VisualizadorHtml;
+using System;
 
 namespace EditorHtml
 {
@@ -37,9 +38,9 @@ namespace EditorHtml
             var opcaoUsuario = short.Parse(Console.ReadLine());
             var caminhoPadraoArquivo = @"C:\Temp";
             var nomePadraoArquivo = "index.html";
-            if (!Directory.Exists(caminhoPadrao))
+            if (!Directory.Exists(caminhoPadraoArquivo))
             {
-                Directory.CreateDirectory(caminhoPadrao);
+                Directory.CreateDirectory(caminhoPadraoArquivo);
             }
 
             Console.WriteLine("----------");
@@ -48,9 +49,9 @@ namespace EditorHtml
 
             switch (opcaoUsuario)
             {
-                case 1: File.WriteAllText(caminhoPadraoArquivo + nomePadraoArquivo); break;
-                case 0: Show; break;
-                default: Menu.Show(); break;
+                case 1: File.WriteAllTextAsync(caminhoPadraoArquivo + nomePadraoArquivo); break;
+                case 0: Show(); break;
+                default: Show(); break;
             }
         }
     }

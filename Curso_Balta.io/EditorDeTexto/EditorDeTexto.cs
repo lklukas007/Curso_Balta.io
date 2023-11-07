@@ -1,4 +1,8 @@
-﻿namespace EditorDeTexto
+﻿using System;
+using System.IO;
+using System.Threading;
+
+namespace EditorDeTexto
 {
     public static class EditorTextoMain
     {

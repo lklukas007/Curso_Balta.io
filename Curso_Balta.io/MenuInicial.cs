@@ -2,12 +2,14 @@
 using Cronometro;
 using EditorDeTexto;
 using MenuHtml;
+using System;
+using System.Threading;
 
 namespace MenuInicial
 {
     public class MenuInicialMain
     {
-        public static void MenuInicial()
+        public void MenuInicial()
         {
             Console.Clear();
             Console.WriteLine("1 = Calculadora");

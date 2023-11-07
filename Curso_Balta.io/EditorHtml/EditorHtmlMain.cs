@@ -1,4 +1,6 @@
 using EditorHtml;
+using System;
+using System.Threading;
 using VisualizadorHtml;
 
 namespace MenuHtml
@@ -70,7 +72,7 @@ namespace MenuHtml
             switch (opcaoUsuario)
             {
                 case 1: Editor.Show(); break;
-                case 2: Visualizador.Show(); break;
+                case 2: Show(); break;
                 case 0: Sair(); break;
                 default: Show(); break;
             }

@@ -1,4 +1,7 @@
-﻿namespace Cronometro
+﻿using System;
+using System.Threading;
+
+namespace Cronometro
 {
     public static class CronometroMain
     {
