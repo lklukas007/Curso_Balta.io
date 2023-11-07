@@ -1,7 +1,6 @@
-using System.Text;
-using System.Collections;
-using System.IO;
 using System;
+using System.IO;
+using System.Text;
 
 namespace EditorHtml
 {
@@ -49,7 +48,7 @@ namespace EditorHtml
 
             switch (opcaoUsuario)
             {
-                case 1: File.WriteAllText(caminhoCompletoArquivo,arquivo); break;
+                case 1: File.WriteAllText(caminhoCompletoArquivo, arquivo); break;
                 case 0: Show(); break;
                 default: Show(); break;
             }

@@ -6,7 +6,7 @@ namespace EditorDeTexto
 {
     public static class EditorTextoMain
     {
-        public static void  Menu()
+        public static void Menu()
         {
             Console.Clear();
             Console.WriteLine("Selecione uma opção:");
