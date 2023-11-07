@@ -9,13 +9,12 @@ namespace EditorHtml
         public static void Show(string texto)
         {
             Console.Clear();
-            Console.BackgroundColor = ConsoleColor.Blue;
+            Console.BackgroundColor = ConsoleColor.White;
             Console.ForegroundColor = ConsoleColor.Black;
             Console.Clear();
             Console.WriteLine("MODO VISUALIZAÇÃO");
             Console.WriteLine("-----------");
             Substituir(texto);
-            Console.WriteLine("-----------");
             Console.ReadKey();
             Menu.Show();
         }
@@ -25,7 +24,7 @@ namespace EditorHtml
             var strong = new Regex(@"<\s*strong[^>]*>(.*?)<\s*/\s*strong>");
             var palavras = texto.Split(' ');
 
-            for (var i = 0; i <= palavras.Length; i++)
+            for (var i = 0; i < palavras.Length; i++)
             {
                 if (strong.IsMatch(palavras[i]))
                 {
@@ -34,8 +33,8 @@ namespace EditorHtml
                         palavras[i].Substring(
                             palavras[i].IndexOf('>') + 1,
                             (
-                            (palavras[i].LastIndexOf('<') - 1)
-                            - palavras[i].LastIndexOf('>')
+                            (palavras[i].LastIndexOf('<') - 1) - 
+                            palavras[i].IndexOf('>')
                             )
                         )
                     );

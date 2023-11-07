@@ -9,15 +9,15 @@ namespace EditorHtml
         public static void Show()
         {
             Console.Clear();
-            Console.BackgroundColor = ConsoleColor.Blue;
+            Console.BackgroundColor = ConsoleColor.White;
             Console.ForegroundColor = ConsoleColor.Black;
             Console.Clear();
             Console.WriteLine("MODO EDITOR");
-            Console.WriteLine("-----------");
+            Console.WriteLine("-----------------------------");
             Iniciar();
         }
 
-        static void Iniciar()
+        public static void Iniciar()
         {
             var arquivo = new StringBuilder();
 
@@ -25,7 +25,8 @@ namespace EditorHtml
             {
                 arquivo.Append(Console.ReadLine());
                 arquivo.Append(Environment.NewLine);
-            } while (Console.ReadKey().Key != ConsoleKey.Escape);
+            } while (Console.ReadKey().Key != ConsoleKey.Enter);
+
             Console.WriteLine("----------------------------------");
             SalvarArquivo(arquivo.ToString());
             Visualizador.Show(arquivo.ToString());
@@ -33,8 +34,7 @@ namespace EditorHtml
 
         static void SalvarArquivo(string arquivo)
         {
-            var opcaoUsuario = short.Parse(Console.ReadLine());
-            var caminhoPadraoArquivo = @"C:\Temp";
+            var caminhoPadraoArquivo = @"C:\TEMP\";
             var nomePadraoArquivo = "index.html";
             var caminhoCompletoArquivo = caminhoPadraoArquivo + nomePadraoArquivo;
             if (!Directory.Exists(caminhoPadraoArquivo))
@@ -42,15 +42,28 @@ namespace EditorHtml
                 Directory.CreateDirectory(caminhoPadraoArquivo);
             }
 
-            Console.WriteLine("----------");
+            Console.WriteLine(" ");
             Console.WriteLine("Deseja salvar o arquivo?");
-            Console.WriteLine("Digite a opção desejada: 1 PARA SALVAR ou 0 PARA NÃO SALVAR");
-
+            Console.WriteLine("Digite a opção desejada:");
+            Console.WriteLine("1 PARA SALVAR ou 0 PARA NÃO SALVAR");
+            var opcaoUsuario = short.Parse(Console.ReadLine());
             switch (opcaoUsuario)
             {
-                case 1: File.WriteAllText(caminhoCompletoArquivo, arquivo); break;
+                case 1: CriarArquivo(arquivo, caminhoCompletoArquivo); break;
                 case 0: Show(); break;
                 default: Show(); break;
+            }
+        }
+
+        private static void CriarArquivo(string arquivo, string caminhoCompletoArquivo)
+        {
+            try
+            {
+                File.WriteAllText(caminhoCompletoArquivo, arquivo.ToString());
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Ocorreu um erro:" + ex.Message);
             }
         }
     }

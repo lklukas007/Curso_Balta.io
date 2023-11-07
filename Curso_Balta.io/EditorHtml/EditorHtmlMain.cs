@@ -13,6 +13,7 @@ namespace EditorHtml
             {
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Green;
+                Console.BackgroundColor = ConsoleColor.Black;
 
                 DesenhaTela();
                 EscreveOpcoesUsuario();
@@ -71,7 +72,7 @@ namespace EditorHtml
                 switch (opcaoUsuario)
                 {
                     case 1: Editor.Show(); break;
-                    case 2: Show(); break;
+                    case 2: Visualizador.Show(""); break;
                     case 0: Sair(); break;
                     default: Show(); break;
                 }
