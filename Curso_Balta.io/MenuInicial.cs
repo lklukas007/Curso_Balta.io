@@ -9,6 +9,8 @@ namespace MenuInicial
 {
     public class MenuInicialMain
     {
+        static void Main(string[] args)
+        {}
         public void MenuInicial()
         {
             Console.Clear();
@@ -24,19 +26,19 @@ namespace MenuInicial
 
         }
 
-        private static void ValidarOpcaoUsuario(short entradaUsuario)
+        private void ValidarOpcaoUsuario(short entradaUsuario)
         {
             switch (entradaUsuario)
             {
-                case 1: CalculadoraMain.Menu() ; break;
-                case 2: CronometroMain.Menu() ; break;
-                case 3: EditorTextoMain.Menu() ; break;
-                case 4: EditorHtmlMain.Menu() ; break;
+                case 1: CalculadoraMain.Menu(); break;
+                case 2: CronometroMain.Menu(); break;
+                case 3: EditorTextoMain.Menu(); break;
+                case 4: EditorHtmlMain.Menu(); break;
                 default: Sair(); break;
             }
         }
 
-        private static void Sair()
+        private void Sair()
         {
             Console.Clear();
             Console.WriteLine("Tchau!");
