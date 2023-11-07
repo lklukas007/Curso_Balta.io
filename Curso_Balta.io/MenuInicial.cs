@@ -1,7 +1,7 @@
 ﻿using Calculadora;
 using Cronometro;
 using EditorDeTexto;
-using MenuHtml;
+using EditorHtml;
 using System;
 using System.Threading;
 
@@ -10,8 +10,10 @@ namespace MenuInicial
     public class MenuInicialMain
     {
         static void Main(string[] args)
-        {}
-        public void MenuInicial()
+        {
+            MenuInicial();
+        }
+        public static void MenuInicial()
         {
             Console.Clear();
             Console.WriteLine("1 = Calculadora");
@@ -26,19 +28,19 @@ namespace MenuInicial
 
         }
 
-        private void ValidarOpcaoUsuario(short entradaUsuario)
+        public static void ValidarOpcaoUsuario(short entradaUsuario)
         {
             switch (entradaUsuario)
             {
-                case 1: CalculadoraMain.Menu(); break;
+                case 1: CalculadoraMain.Menu.Show(); break;
                 case 2: CronometroMain.Menu(); break;
                 case 3: EditorTextoMain.Menu(); break;
-                case 4: EditorHtmlMain.Menu(); break;
+                case 4: EditorHtmlMain.Menu.Show(); break;
                 default: Sair(); break;
             }
         }
 
-        private void Sair()
+        public static void Sair()
         {
             Console.Clear();
             Console.WriteLine("Tchau!");

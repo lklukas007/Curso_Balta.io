@@ -1,8 +1,8 @@
-using MenuHtml;
 using System;
 using System.Text.RegularExpressions;
+using static EditorHtml.EditorHtmlMain;
 
-namespace VisualizadorHtml
+namespace EditorHtml
 {
     public class Visualizador
     {
@@ -17,7 +17,7 @@ namespace VisualizadorHtml
             Substituir(texto);
             Console.WriteLine("-----------");
             Console.ReadKey();
-            EditorHtmlMain.Menu();
+            Menu.Show();
         }
 
         public static void Substituir(string texto)

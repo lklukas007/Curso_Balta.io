@@ -1,7 +1,6 @@
 using System.Text;
 using System.Collections;
 using System.IO;
-using VisualizadorHtml;
 using System;
 
 namespace EditorHtml
@@ -19,7 +18,7 @@ namespace EditorHtml
             Iniciar();
         }
 
-        public static void Iniciar()
+        static void Iniciar()
         {
             var arquivo = new StringBuilder();
 
@@ -28,16 +27,17 @@ namespace EditorHtml
                 arquivo.Append(Console.ReadLine());
                 arquivo.Append(Environment.NewLine);
             } while (Console.ReadKey().Key != ConsoleKey.Escape);
-
-            SalvarArquivo(arquivo);
+            Console.WriteLine("----------------------------------");
+            SalvarArquivo(arquivo.ToString());
             Visualizador.Show(arquivo.ToString());
         }
 
-        public static void SalvarArquivo(string arquivo)
+        static void SalvarArquivo(string arquivo)
         {
             var opcaoUsuario = short.Parse(Console.ReadLine());
             var caminhoPadraoArquivo = @"C:\Temp";
             var nomePadraoArquivo = "index.html";
+            var caminhoCompletoArquivo = caminhoPadraoArquivo + nomePadraoArquivo;
             if (!Directory.Exists(caminhoPadraoArquivo))
             {
                 Directory.CreateDirectory(caminhoPadraoArquivo);
@@ -49,7 +49,7 @@ namespace EditorHtml
 
             switch (opcaoUsuario)
             {
-                case 1: File.WriteAllTextAsync(caminhoPadraoArquivo + nomePadraoArquivo); break;
+                case 1: File.WriteAllText(caminhoCompletoArquivo,arquivo); break;
                 case 0: Show(); break;
                 default: Show(); break;
             }

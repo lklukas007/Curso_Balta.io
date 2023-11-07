@@ -1,16 +1,15 @@
-using EditorHtml;
 using System;
 using System.Threading;
-using VisualizadorHtml;
 
-namespace MenuHtml
+namespace EditorHtml
 {
     public static class EditorHtmlMain
     {
-        public static void Menu() 
+
+        public static class Menu
         { 
 
-        static void Show()
+        public static void Show()
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Green;
