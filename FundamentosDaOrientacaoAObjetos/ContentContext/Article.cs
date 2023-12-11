@@ -1,6 +1,6 @@
 namespace FundamentosDaOrientacaoAObjetos.ContentContext
 {
-    public class Article
+    public class Article : Content
     {
 
     }

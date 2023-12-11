@@ -1,8 +1,12 @@
+using System;
+
 namespace FundamentosDaOrientacaoAObjetos.ContentContext
 {
-    public class Content
+    public abstract class Content
     {
-        public int Id { get; set; }
+        public Content() => Id = Guid.NewGuid();
+
+        public Guid Id { get; set; }
 
         public int Title { get; set; }
 

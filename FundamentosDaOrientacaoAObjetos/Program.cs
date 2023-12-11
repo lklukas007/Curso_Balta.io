@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FundamentosDaOrientacaoAObjetos.ContentContext;
+using System;
 
 namespace FundamentosDaOrientacaoAObjetos
 {
@@ -7,6 +8,10 @@ namespace FundamentosDaOrientacaoAObjetos
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+
+            var course = new Course();
+            
+
         }
     }
 }
