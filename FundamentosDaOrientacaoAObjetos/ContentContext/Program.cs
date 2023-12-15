@@ -1,5 +1,6 @@
 ﻿using FundamentosDaOrientacaoAObjetos.ContentContext;
 using System;
+using System.Collections.Generic;
 
 namespace FundamentosDaOrientacaoAObjetos
 {
@@ -7,16 +8,18 @@ namespace FundamentosDaOrientacaoAObjetos
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var articles = new List<Article>();
+            articles.Add(new Article("Artigo sobre OOP", "orientacao-objetos"));
+            articles.Add(new Article("Artigo sobre C#", "csharp"));
+            articles.Add(new Article("Artigo sobre .NET", "dotnet"));
 
-            var course = new Course();
-
-            course.Level = ContentContext.Enums.EContentLevel.Beginner;
-            foreach (var item in course.Modules)
+            foreach (var article in articles)
             {
-
+                Console.WriteLine(article.Id);
+                Console.WriteLine(article.Title);
+                Console.WriteLine(article.Url);
             }
-
+            while (Console.ReadKey().Key != ConsoleKey.Enter) { }
         }
     }
 }
