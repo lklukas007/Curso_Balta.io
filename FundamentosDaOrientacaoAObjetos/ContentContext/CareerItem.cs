@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FundamentosDaOrientacaoAObjetos.NotificationContext;
+using FundamentosDaOrientacaoAObjetos.SharedContext;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,10 +8,16 @@ using System.Threading.Tasks;
 
 namespace FundamentosDaOrientacaoAObjetos.ContentContext
 {
-    public class CareerItem
+    public class CareerItem : Base
     {
-        public CareerItem(int order, string title, string description, Course course)
+        public CareerItem(int order,
+                          string title,
+                          string description,
+                          Course course)
         {
+            if (course == null)
+                AddNotification(new Notification("Course", "Curso Inválido"));
+
             Order = order;
             Title = title;
             Description = description;

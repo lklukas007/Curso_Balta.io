@@ -1,4 +1,5 @@
 ﻿using FundamentosDaOrientacaoAObjetos.ContentContext.Enums;
+using FundamentosDaOrientacaoAObjetos.SharedContext;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FundamentosDaOrientacaoAObjetos.ContentContext
 {
-    public class Lecture
+    public class Lecture : Base
     {
         public int Ordem { get; set; }
 
