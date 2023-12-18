@@ -77,6 +77,48 @@ SELECT TOP 100
 [Id_Curso], [Nome]
 FROM [Curso]
 
+SELECT * FROM [Curso] WHERE [Nome] LIKE '%FUNDAMENTOS%'
+
+SELECT [Nome] AS Nome_Curso FROM [Curso] WHERE [Nome] LIKE '%FUNDAMENTOS%'
+
+-- LEFT, RIGHT, FULL E ETC
+SELECT CS.[Nome] AS Nome_Curso,
+CT.Nome AS Nome_Categoria
+FROM [Curso] CS INNER JOIN [Categoria] CT ON CS.CategoriaId = CT.Id
+WHERE CS.[Nome] LIKE '%FUNDAMENTOS%'
+
 GO
 
--- 
+-- UPDATES:
+
+UPDATE [Categoria] SET [Nome] = 'BackEnd'
+WHERE [Id] = 1
+
+GO
+
+-- DELETE:
+
+INSERT INTO [Categoria]([Nome]) VALUES ('TESTE')
+
+DELETE FROM [Categoria]
+WHERE [Nome] = 'TESTE'
+
+GO
+
+-- VIEW
+
+/*
+CREATE OR ALTER VIEW vwContagemDeCursos AS
+SELECT COUNT(Id_Curso) AS Qtde_Cursos FROM [Curso]
+*/
+
+SELECT * FROM vwContagemDeCursos
+
+GO
+
+-- STORED PROCEDURES
+
+CREATE OR ALTER PROCEDURE [spListarCursos] AS
+SELECT * FROM [Curso]
+
+EXEC [spListarCursos]
