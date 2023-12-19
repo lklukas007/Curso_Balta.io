@@ -122,3 +122,14 @@ CREATE OR ALTER PROCEDURE [spListarCursos] AS
 SELECT * FROM [Curso]
 
 EXEC [spListarCursos]
+
+
+------------------------------------------------------------------------------------------
+
+-- MÃO NA MASSA:
+
+-- GERA UM GUID:
+SELECT NEWID()
+
+-- PEGAR DATA ATUAL DO SERVIDOR:
+SELECT GETDATE()
