@@ -1,4 +1,5 @@
-﻿using System.Data.SqlClient;
+﻿using Dapper;
+using System.Data.SqlClient;
 
 internal class Program
 {
@@ -10,8 +11,11 @@ internal class Program
         {
             using (var connection = new SqlConnection(connection_string))
             {
-                connection.Open();
-                Console.WriteLine("Conectado com sucesso!");
+                var categories = connection.Query<Category>("SELECT [Id], [Title] FROM [Category]");
+                foreach (var category in categories)
+                {
+                    Console.WriteLine($"{category.Id} - {category.Title}");
+                }
                 Console.ReadKey();
 
             }
