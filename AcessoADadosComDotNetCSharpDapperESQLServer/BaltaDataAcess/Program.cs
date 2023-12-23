@@ -13,7 +13,8 @@ internal class Program
             //UpdateCategory(connection);
             //CreateManyCategories(connection);
             //ListCategories(connection);
-            ExecuteProcedure(connection);
+            //ExecuteProcedure(connection);
+            ExecuteReadProcedure(connection);
 
         }
 
@@ -147,6 +148,18 @@ internal class Program
         var linhas = connection.Execute(procedure, parametros, commandType: CommandType.StoredProcedure);
         Console.WriteLine($"{linhas} linhas afetadas");
 
+    }
+
+    static void ExecuteReadProcedure(SqlConnection connection)
+    {
+        var procedure = "spListCourse";
+        var parametros = new { CategoryId = "09ce0b7b-cfca-497b-92c0-3290ad9d5142" };
+        var cursos = connection.Query(procedure, parametros, commandType: CommandType.StoredProcedure);
+        foreach (var curso in cursos)
+        {
+            Console.WriteLine($"Nome do curso:{curso.Title} - Id do curso: {curso.Id}");
+        }
+        Console.ReadKey();  
     }
 
 }
