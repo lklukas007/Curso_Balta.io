@@ -14,7 +14,8 @@ internal class Program
             //CreateManyCategories(connection);
             //ListCategories(connection);
             //ExecuteProcedure(connection);
-            ExecuteReadProcedure(connection);
+            //ExecuteReadProcedure(connection);
+            //ExecuteScalar(connection);
 
         }
 
@@ -159,7 +160,51 @@ internal class Program
         {
             Console.WriteLine($"Nome do curso:{curso.Title} - Id do curso: {curso.Id}");
         }
-        Console.ReadKey();  
+        Console.ReadKey();
+    }
+
+    static void ExecuteScalar(SqlConnection connection)
+    {
+        try
+        {
+            var category = new Category();
+            category.Title = "Amazon AWS";
+            category.Url = "amazon";
+            category.Summary = "AWS Cloud";
+            category.Order = 8;
+            category.Description = "Categoria para serviços do AWS";
+            category.Featured = false;
+
+            var insertSql = @"INSERT INTO 
+                                [Category] 
+                              OUTPUT inserted.[Id]
+                              VALUES
+                                (NEWID(),
+                                @Title,
+                                @Url,
+                                @Description,
+                                @Order,
+                                @Summary,
+                                @Featured)
+                              SELECT SCOPE_IDENTITY()";
+
+            var id = connection.ExecuteScalar<Guid>(insertSql, new
+            {
+                category.Title,
+                category.Url,
+                category.Order,
+                category.Summary,
+                category.Description,
+                category.Featured
+
+            });
+            Console.WriteLine($"A categoria inserida foi: {id}");
+
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Erro ao criar categoria! - Erro: {ex.Message}");
+        }
     }
 
 }
