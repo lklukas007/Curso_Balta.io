@@ -19,17 +19,21 @@ namespace Blog.Screens.UserScreens
             Console.Write("Nome: ");
             var name = Console.ReadLine();
 
-            Console.Write("Slug: ");
-            var slug = Console.ReadLine();
 
             Console.Write("E-mail: ");
             var email = Console.ReadLine();
 
             Console.Write("Senha: ");
-            var senha = Console.ReadLine();
+            var senha = ObterSenhaDigitadoPeloUsuario();
 
             Console.Write("Bio: ");
             var bio = Console.ReadLine();
+            
+            Console.Write("Url da Imagem do usuário: ");
+            var image = Console.ReadLine();
+            
+            Console.Write("Slug: ");
+            var slug = Console.ReadLine();
 
             Create(new User
             {
@@ -37,6 +41,7 @@ namespace Blog.Screens.UserScreens
                 Email = email,
                 PasswordHash = senha,
                 Bio = bio,
+                Image = image,
                 Slug = slug
 
             });
@@ -57,6 +62,32 @@ namespace Blog.Screens.UserScreens
                 Console.WriteLine("Não foi possível salvar o Usuário");
                 Console.WriteLine(ex.Message);
             }
+        }
+
+        public static string ObterSenhaDigitadoPeloUsuario()
+        {
+            string senha = "";
+            ConsoleKeyInfo key;
+
+            do
+            {
+                key = Console.ReadKey(true);
+
+                if (!char.IsControl(key.KeyChar))
+                {
+                    senha += key.KeyChar;
+                    Console.Write("*");
+                }
+
+                else if (key.Key == ConsoleKey.Backspace && senha.Length > 0)
+                {
+                    senha = senha.Substring(0, senha.Length - 1);
+                    Console.Write("\b \b");
+                }
+            }
+            while (key.Key != ConsoleKey.Enter);
+            Console.WriteLine();
+            return senha;
         }
     }
 }
