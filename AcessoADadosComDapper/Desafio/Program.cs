@@ -10,13 +10,27 @@ namespace Blog
 
         static void Main(string[] args)
         {
-            Database.Connection = new SqlConnection(CONNECTION_STRING);
-            Database.Connection.Open();
+            ConectarNoBancoDeDados();
 
             Load();
 
             Console.ReadKey();
             Database.Connection.Close();
+        }
+
+        private static void ConectarNoBancoDeDados()
+        {
+            try
+            {
+                Database.Connection = new SqlConnection(CONNECTION_STRING);
+                Database.Connection.Open();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro ao se conectar com o banco de dados - {ex.Message}");
+                Console.ReadKey();
+            }
         }
 
         private static void Load()
@@ -39,6 +53,9 @@ namespace Blog
 
             switch (option)
             {
+                case 1:
+                    MenuUserScreen.Load();
+                    break;
                 case 4:
                     MenuTagScreen.Load();
                     break;
