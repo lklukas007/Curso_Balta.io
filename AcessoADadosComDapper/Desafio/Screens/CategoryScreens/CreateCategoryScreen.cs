@@ -29,7 +29,7 @@ namespace Blog.Screens.CategoryScreens
 
             }); ;
             Console.ReadKey();
-            MenuRoleScreen.Load();
+            MenuCategoryScreen.Load();
         }
 
         public static void Create(Category category)

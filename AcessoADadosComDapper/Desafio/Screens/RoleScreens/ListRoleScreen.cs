@@ -13,7 +13,7 @@ namespace Blog.Screens.RoleScreens
             Console.WriteLine("-------------");
             List();
             Console.ReadKey();
-            MenuUserScreen.Load();
+            MenuRoleScreen.Load();
         }
 
         private static void List()
