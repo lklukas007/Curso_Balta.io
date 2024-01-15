@@ -6,7 +6,7 @@ namespace Blog
 {
     class Program
     {
-        private const string CONNECTION_STRING = @"Server=localhost,1433;Database=Blog;User ID=sa;Password=1q2w3e4r@#$";
+        private const string CONNECTION_STRING = @"Server=localhost,1435;Database=Blog;User ID=sa;Password=inovafarmaI";
 
         static void Main(string[] args)
         {
