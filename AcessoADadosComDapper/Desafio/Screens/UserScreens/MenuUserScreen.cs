@@ -1,7 +1,7 @@
 using Blog.Screens.UserScreens;
 using System;
 
-namespace Blog.Screens.TagScreens
+namespace Blog.Screens.UserScreens
 {
     public static class MenuUserScreen
     {

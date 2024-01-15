@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Blog.Screens.UserScreens
+namespace Blog.Screens.RoleScreens
 {
     public static class CreateRoleScreen
     {

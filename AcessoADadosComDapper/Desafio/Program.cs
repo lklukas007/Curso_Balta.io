@@ -1,4 +1,5 @@
 ﻿using System;
+using Blog.Screens.CategoryScreens;
 using Blog.Screens.TagScreens;
 using Microsoft.Data.SqlClient;
 
@@ -58,6 +59,9 @@ namespace Blog
                     break;
                 case 2:
                     MenuRoleScreen.Load();
+                    break;
+                case 3:
+                    MenuCategoryScreen.Load();
                     break;
                 case 4:
                     MenuTagScreen.Load();

@@ -2,7 +2,7 @@ using System;
 using Blog.Models;
 using Blog.Repositories;
 
-namespace Blog.Screens.TagScreens
+namespace Blog.Screens.UserScreens
 {
     public static class UpdateUserScreen
     {
