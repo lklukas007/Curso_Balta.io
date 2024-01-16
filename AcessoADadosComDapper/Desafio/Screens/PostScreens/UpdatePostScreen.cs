@@ -17,10 +17,11 @@ namespace Blog.Screens.PostScreens
             Console.Write("Nome: ");
             var name = Console.ReadLine();
 
+            var lastUpdateDate = DateTime.Now;
+
             Update(new Post
             {
-                Id = int.Parse(id),
-                Name = name
+                Id = int.Parse(id)
             });
             Console.ReadKey();
             MenuPostScreen.Load();

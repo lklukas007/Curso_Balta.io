@@ -21,7 +21,7 @@ namespace Blog.Screens.PostScreens
             var repository = new Repository<Post>(Database.Connection);
             var posts = repository.Get();
             foreach (var post in posts)
-                Console.WriteLine($"{post.Id} - {post.Name}");
+                Console.WriteLine($"{post.Id}");
         }
     }
 }

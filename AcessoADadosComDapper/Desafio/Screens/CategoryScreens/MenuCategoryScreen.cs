@@ -1,4 +1,5 @@
 using Blog.Screens.UserScreens;
+using Blog.Helpers;
 using System;
 
 namespace Blog.Screens.CategoryScreens
@@ -18,9 +19,9 @@ namespace Blog.Screens.CategoryScreens
             Console.WriteLine("4 - Excluir categorias de posts");
             Console.WriteLine();
             Console.WriteLine();
-            var option = short.Parse(Console.ReadLine());
+            short opcaoUsuarioValidada = ValidadorDeTexto.ValidarValorEntradaUsuario(Console.ReadLine());
 
-            switch (option)
+            switch (opcaoUsuarioValidada)
             {
                 case 1:
                     ListCategoryScreen.Load();

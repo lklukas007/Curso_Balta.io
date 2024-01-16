@@ -1,3 +1,4 @@
+using Blog.Helpers;
 using System;
 
 namespace Blog.Screens.TagScreens
@@ -17,9 +18,9 @@ namespace Blog.Screens.TagScreens
             Console.WriteLine("4 - Excluir tag");
             Console.WriteLine();
             Console.WriteLine();
-            var option = short.Parse(Console.ReadLine());
+            short opcaoUsuarioValidada = ValidadorDeTexto.ValidarValorEntradaUsuario(Console.ReadLine());
 
-            switch (option)
+            switch (opcaoUsuarioValidada)
             {
                 case 1:
                     ListTagScreen.Load();

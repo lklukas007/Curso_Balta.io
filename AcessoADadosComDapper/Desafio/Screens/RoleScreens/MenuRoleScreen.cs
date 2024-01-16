@@ -1,4 +1,5 @@
 using Blog.Screens.UserScreens;
+using Blog.Helpers;
 using System;
 
 namespace Blog.Screens.RoleScreens
@@ -18,9 +19,9 @@ namespace Blog.Screens.RoleScreens
             Console.WriteLine("4 - Excluir perfis de usuários");
             Console.WriteLine();
             Console.WriteLine();
-            var option = short.Parse(Console.ReadLine());
+            short opcaoUsuarioValidada = ValidadorDeTexto.ValidarValorEntradaUsuario(Console.ReadLine());
 
-            switch (option)
+            switch (opcaoUsuarioValidada)
             {
                 case 1:
                     ListRoleScreen.Load();

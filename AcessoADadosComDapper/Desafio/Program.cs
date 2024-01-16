@@ -4,6 +4,7 @@ using Blog.Screens.PostScreens;
 using Blog.Screens.RoleScreens;
 using Blog.Screens.TagScreens;
 using Blog.Screens.UserScreens;
+using Blog.Helpers;
 using Microsoft.Data.SqlClient;
 
 namespace Blog
@@ -53,10 +54,10 @@ namespace Blog
             Console.WriteLine("7 - Vincular post/tag");
             Console.WriteLine("8 - Relatórios");
             Console.WriteLine();
-            Console.WriteLine();
-            var option = short.Parse(Console.ReadLine()!);
+            Console.WriteLine("Digite um número para acessar o módulo que deseja:");
+            short opcaoUsuarioValidada = ValidadorDeTexto.ValidarValorEntradaUsuario((Console.ReadLine()!));
 
-            switch (option)
+            switch (opcaoUsuarioValidada)
             {
                 case 1:
                     MenuUserScreen.Load();

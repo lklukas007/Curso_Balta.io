@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 using Blog.Models;
 using Blog.Repositories;
 
@@ -11,10 +12,39 @@ namespace Blog.Screens.PostScreens
             Console.Clear();
             Console.WriteLine("Novo Post");
             Console.WriteLine("-------------");
-            Console.Write("Nome: ");
-            var name = Console.ReadLine();
 
-            Create(new Post { Name = name });
+            Console.Write("ID da categoria do post: ");
+            var categoryId = Console.ReadLine();
+
+            Console.Write("ID do autor do post: ");
+            var authorId = Console.ReadLine();
+
+            Console.Write("Título do post: ");
+            var title = Console.ReadLine();
+
+            Console.Write("Resumo do post: ");
+            var summary = Console.ReadLine();
+
+            Console.Write("Texto do post: ");
+            var body = Console.ReadLine();
+
+            Console.Write("Slug: ");
+            var slug = Console.ReadLine();
+
+            var createDate = DateTime.Now;
+
+            Create(new Post
+            {
+                CategoryId = int.Parse(categoryId),
+                AuthorId = int.Parse(authorId),
+                Title = title,
+                Summary = summary,
+                Body = body,
+                Slug = slug,
+                CreateDate = createDate,
+                LastUpdateDate = createDate
+
+            });
             Console.ReadKey();
             MenuPostScreen.Load();
         }
