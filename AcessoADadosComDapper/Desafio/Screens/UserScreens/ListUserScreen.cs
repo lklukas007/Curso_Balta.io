@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Blog.Models;
 using Blog.Repositories;
 
@@ -18,10 +19,20 @@ namespace Blog.Screens.UserScreens
 
         private static void List()
         {
-            var repository = new Repository<User>(Database.Connection);
-            var users = repository.Get();
-            foreach (var item in users)
-                Console.WriteLine($"{item.Id} - {item.Name} - {item.Email} - {item.Bio} - ({item.Slug})");
+            UserRepository userRepository = new(Database.Connection);
+
+            var users = userRepository.GetWithRoles();
+
+            foreach (var user in users)
+            {
+                Console.Write($"ID: {user.Id} , NOME: {user.Name} , EMAIL: {user.Email}");
+
+                foreach (var role in user.Roles)
+                {
+                    Console.WriteLine($", PERFIL: {role.Name}");
+                }
+            }
+
         }
     }
 }
