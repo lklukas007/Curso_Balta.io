@@ -24,7 +24,7 @@ namespace Blog.Screens.RoleScreens
             switch (opcaoUsuarioValidada)
             {
                 case 1:
-                    ListRoleScreen.Load();
+                    ListRoleScreen.Load(voltarMenu: true);
                     break;
                 case 2:
                     CreateRoleScreen.Load();

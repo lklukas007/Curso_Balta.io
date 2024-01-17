@@ -1,19 +1,26 @@
 using System;
 using Blog.Models;
 using Blog.Repositories;
+using Blog.Screens.UserScreens;
 
 namespace Blog.Screens.RoleScreens
 {
     public static class ListRoleScreen
     {
-        public static void Load()
+        public static void Load(bool voltarMenu)
         {
-            Console.Clear();
             Console.WriteLine("Lista de perfis de usuários");
             Console.WriteLine("-------------");
             List();
-            Console.ReadKey();
-            MenuRoleScreen.Load();
+            if (voltarMenu)
+            {
+                Console.ReadKey();
+                MenuRoleScreen.Load();
+            }
+            else
+            {
+                Console.WriteLine("-------------");
+            }
         }
 
         private static void List()

@@ -5,14 +5,20 @@ namespace Blog.Screens.UserScreens
 {
     public static class ListUserScreen
     {
-        public static void Load()
+        public static void Load(bool voltarMenu)
         {
-            Console.Clear();
             Console.WriteLine("Lista de usuários");
             Console.WriteLine("-------------");
             List();
-            Console.ReadKey();
-            MenuUserScreen.Load();
+            if (voltarMenu)
+            {
+                Console.ReadKey();
+                MenuUserScreen.Load();
+            }
+            else
+            {
+                Console.WriteLine("-------------");
+            }
         }
 
         private static void List()

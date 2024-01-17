@@ -1,7 +1,10 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Blog.Models;
+using Blog.Screens.UserScreens;
 using Dapper;
+using Dapper.Contrib.Extensions;
 using Microsoft.Data.SqlClient;
 
 namespace Blog.Repositories
@@ -47,6 +50,25 @@ namespace Blog.Repositories
                 }, splitOn: "Id");
 
             return users;
+        }
+
+        public void VincularUsuarioPerfil(int idRole, int idUser)
+        {
+            var query = "INSERT INTO UserRole (UserId,RoleId) VALUES (@UserId,@RoleId)";
+
+            try
+            {
+                _connection.Query(query, new { UserId = idUser, RoleId = idRole });
+                Console.WriteLine("Vínculo realizado com sucesso.");
+                Console.ReadKey();
+                LinkUserScreen.Load();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Não foi possível víncular o usuário ao perfil - {ex.Message}");
+                Console.ReadKey();
+                LinkUserScreen.Load();
+            }
         }
     }
 }

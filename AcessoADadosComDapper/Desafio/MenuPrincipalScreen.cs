@@ -9,7 +9,7 @@ using Microsoft.Data.SqlClient;
 
 namespace Blog
 {
-    class Program
+    class MenuPrincipalScreen
     {
         private const string CONNECTION_STRING = @"Server=localhost,1435;Database=Blog;User ID=sa;Password=inovafarmaI;TrustServerCertificate=True;";
 
@@ -73,6 +73,9 @@ namespace Blog
                     break;
                 case 5:
                     MenuPostScreen.Load();
+                    break;
+                case 6:
+                    LinkUserScreen.Load();
                     break;
                 default: Load(); break;
             }

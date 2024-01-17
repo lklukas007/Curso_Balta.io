@@ -23,7 +23,7 @@ namespace Blog.Screens.UserScreens
             switch (option)
             {
                 case 1:
-                    ListUserScreen.Load();
+                    ListUserScreen.Load(voltarMenu: true);
                     break;
                 case 2:
                     CreateUserScreen.Load();
