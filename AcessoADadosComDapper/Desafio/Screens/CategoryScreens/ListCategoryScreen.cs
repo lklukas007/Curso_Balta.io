@@ -18,10 +18,10 @@ namespace Blog.Screens.CategoryScreens
 
         private static void List()
         {
-            var repository = new Repository<Category>(Database.Connection);
-            var categories = repository.Get();
+            CategoryRepository repository = new (Database.Connection);
+            var categories = repository.GetAmountCategoriesPost();
             foreach (var category in categories)
-                Console.WriteLine($"{category.Id} - {category.Name} - ({category.Slug})");
+                Console.WriteLine($"ID: {category.Id} - NOME: {category.Name} - QTDE DE POSTS: {category.QtdePosts}");
         }
     }
 }

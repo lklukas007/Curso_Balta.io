@@ -11,7 +11,7 @@ namespace Blog
 {
     class Program
     {
-        private const string CONNECTION_STRING = @"Server=localhost,1435;Database=Blog;User ID=sa;Password=inovafarmaI";
+        private const string CONNECTION_STRING = @"Server=localhost,1435;Database=Blog;User ID=sa;Password=inovafarmaI;TrustServerCertificate=True;";
 
         static void Main(string[] args)
         {

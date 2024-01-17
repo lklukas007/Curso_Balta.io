@@ -18,10 +18,10 @@ namespace Blog.Screens.TagScreens
 
         private static void List()
         {
-            var repository = new Repository<Tag>(Database.Connection);
-            var tags = repository.Get();
-            foreach (var item in tags)
-                Console.WriteLine($"{item.Id} - {item.Name} ({item.Slug})");
+            TagRepository repository = new (Database.Connection);
+            var tags = repository.GetAmountTagPost();
+            foreach (var tag in tags)
+                Console.WriteLine($"{tag.Id} - {tag.Name} - {tag.QtdePosts}");
         }
     }
 }
