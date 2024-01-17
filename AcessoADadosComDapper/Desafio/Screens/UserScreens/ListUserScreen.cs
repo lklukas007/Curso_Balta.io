@@ -1,7 +1,5 @@
-using System;
-using System.Linq;
-using Blog.Models;
 using Blog.Repositories;
+using System;
 
 namespace Blog.Screens.UserScreens
 {
