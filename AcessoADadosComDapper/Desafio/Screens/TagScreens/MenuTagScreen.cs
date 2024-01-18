@@ -23,7 +23,7 @@ namespace Blog.Screens.TagScreens
             switch (opcaoUsuarioValidada)
             {
                 case 1:
-                    ListTagScreen.Load();
+                    ListTagScreen.Load(voltarMenu: true);
                     break;
                 case 2:
                     CreateTagScreen.Load();

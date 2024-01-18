@@ -19,8 +19,8 @@ namespace Blog.Screens.UserScreens
             Console.WriteLine();
             var userId = short.Parse(Console.ReadLine());
 
-            UserRepository userRepository = new(Database.Connection);
-            userRepository.VincularUsuarioPerfil(roleId, userId);
+            PostRepository postRepository = new(Database.Connection);
+            postRepository.VincularPostTag(roleId, userId);
 
         }
     }

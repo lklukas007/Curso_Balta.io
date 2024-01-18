@@ -77,6 +77,9 @@ namespace Blog
                 case 6:
                     LinkUserScreen.Load();
                     break;
+                case 7:
+                    LinkPostScreen.Load();
+                    break;
                 default: Load(); break;
             }
         }

@@ -23,7 +23,7 @@ namespace Blog.Screens.PostScreens
             switch (opcaoUsuarioValidada)
             {
                 case 1:
-                    ListPostScreen.Load();
+                    ListPostScreen.Load(voltarMenu: true);
                     break;
                 case 2:
                     CreatePostScreen.Load();
