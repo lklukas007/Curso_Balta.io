@@ -27,5 +27,18 @@ namespace Blog.Repositories
 
             return categories;
         }
+        public List<Category> ObterListaPostPorCategoria()
+        {
+            var query = @"
+                            SELECT C.Id, C.Name, COUNT(P.Id) AS Qtde_Posts 
+                            FROM [Category] C 
+                            LEFT JOIN [Post] P ON C.[Id] = P.[CategoryId] 
+                            GROUP BY C.Name,C.Id
+                         ";
+
+            var categories = _connection.Query<Category>(query).ToList();
+
+            return categories;
+        }
     }
 }

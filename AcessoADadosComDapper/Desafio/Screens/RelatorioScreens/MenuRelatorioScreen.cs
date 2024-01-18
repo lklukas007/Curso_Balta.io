@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Blog.Screens.CategoryScreens;
+using System;
 
 namespace Blog.Screens.RelatorioScreens
 {
@@ -21,7 +22,7 @@ namespace Blog.Screens.RelatorioScreens
             switch (option)
             {
                 case 1:
-                    //ListarPostsPorCategoria(); CRIAR CLASSE PARA LISTAR POSTS POR CATEGORIA
+                    ListCategoryScreen.Load();
                         break;
                 default: Load(); break;
             }
