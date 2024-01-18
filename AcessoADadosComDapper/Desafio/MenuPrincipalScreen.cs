@@ -6,6 +6,7 @@ using Blog.Screens.TagScreens;
 using Blog.Screens.UserScreens;
 using Blog.Helpers;
 using Microsoft.Data.SqlClient;
+using Blog.Screens.RelatorioScreens;
 
 namespace Blog
 {
@@ -79,6 +80,9 @@ namespace Blog
                     break;
                 case 7:
                     LinkPostScreen.Load();
+                    break;
+                case 8:
+                    RelatorioScreen.Load();
                     break;
                 default: Load(); break;
             }
