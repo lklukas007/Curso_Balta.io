@@ -37,5 +37,28 @@ namespace Blog.Repositories
                 LinkPostScreen.Load();
             }
         }
+        public List<Post> ObterListaPostPorCategoria(int idCategory)
+        {
+            var query = @"
+                            SELECT 
+                                P.[Id]
+                                ,P.[CategoryId]
+                                ,P.[AuthorId]
+                                ,P.[Title]
+                                ,P.[Summary]
+                                ,P.[Body]
+                                ,P.[Slug]
+                                ,P.[CreateDate]
+                                ,P.[LastUpdateDate]
+                                ,C.[Name] AS NomeCategoria
+                            FROM [Post] P
+                            INNER JOIN [Category] C ON C.Id = P.CategoryId
+                            WHERE CategoryId = @CategoryId
+                         ";
+
+            var posts = _connection.Query<Post>(query, new { CategoryId = idCategory }).ToList();
+
+            return posts;
+        }
     }
 }

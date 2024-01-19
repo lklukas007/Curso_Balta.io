@@ -24,7 +24,7 @@ namespace Blog.Screens.CategoryScreens
             switch (opcaoUsuarioValidada)
             {
                 case 1:
-                    ListCategoryScreen.Load();
+                    ListCategoryScreen.Load(voltarMenu: true);
                     break;
                 case 2:
                     CreateCategoryScreen.Load();

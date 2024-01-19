@@ -1,4 +1,5 @@
-﻿using Blog.Screens.CategoryScreens;
+﻿using Blog.Helpers;
+using Blog.Screens.CategoryScreens;
 using System;
 
 namespace Blog.Screens.RelatorioScreens
@@ -17,12 +18,13 @@ namespace Blog.Screens.RelatorioScreens
             Console.WriteLine("3 - Listar os posts com sua tags");
             Console.WriteLine();
             Console.WriteLine();
-            var option = short.Parse(Console.ReadLine());
+            Console.WriteLine("Digite um número para acessar o módulo que deseja:");
+            short opcaoUsuarioValidada = ValidadorDeTexto.ValidarValorEntradaUsuario((Console.ReadLine()!));
 
-            switch (option)
+            switch (opcaoUsuarioValidada)
             {
                 case 1:
-                    ListCategoryScreen.Load();
+                    ListPostPerCategoryRelatorio.Load();
                         break;
                 default: Load(); break;
             }

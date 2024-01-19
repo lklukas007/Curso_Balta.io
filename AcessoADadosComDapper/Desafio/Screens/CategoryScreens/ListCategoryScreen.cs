@@ -1,19 +1,26 @@
 using System;
 using Blog.Models;
 using Blog.Repositories;
+using Blog.Screens.TagScreens;
 
 namespace Blog.Screens.CategoryScreens
 {
     public static class ListCategoryScreen
     {
-        public static void Load()
+        public static void Load(bool voltarMenu)
         {
-            Console.Clear();
             Console.WriteLine("Lista de categorias de posts");
             Console.WriteLine("-------------");
             List();
-            Console.ReadKey();
-            MenuCategoryScreen.Load();
+            if (voltarMenu)
+            {
+                Console.ReadKey();
+                MenuTagScreen.Load();
+            }
+            else
+            {
+                Console.WriteLine("-------------");
+            }
         }
 
         private static void List()
